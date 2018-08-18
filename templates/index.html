@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" type="text/css" href="index"/>
+    <meta charset="UTF-8">
+    <style>
+        h1 {
+            font-family: Raleway, sans-serif;
+            color: white;
+            font-size: 60px;
+        }
+
+        body {
+            background: linear-gradient(to right, #333333, #dd1818);
+        }
+
+        h2 {
+            font-family: Raleway, serif;
+            color: white;
+            font-size: 30px;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Verdana, monospace;
+        }
+
+    </style>
+    <title>notes</title>
+</head>
+<body>
+<center>
+<h1>notes</h1>
+
+    <form action="/my/" method="post">
+        {% csrf_token %}
+        <input style='box-sizing: border-box; font-size: 20px; border: 3px solid #222; background-color: rgba(54,51,54,0.88);'name="key" id="1" type="text"/>
+        <br>
+        <br>
+
+        <input style='box-sizing: border-box; font-size: 15px; border: 3px solid #222; background-color: rgba(54,51,54,0.88); color: white; font-family: Verdana,sans-serif; display: inline;' type="submit" value="submit">
+    </form>
+
+    {% for item in data %}
+        <form action="/my/">
+            <h2>{{item}}</h2><input type="hidden" value="{{ item }}" name="n"> <input style='box-sizing: border-box; font-size: 13px; border: 3px solid #222; background-color: rgba(54,51,54,0.88); color: white; font-family: Verdana,sans-serif; display: inline;' type="submit" value="delete" name="no"><input style='box-sizing: border-box; font-size: 13px; border: 3px solid #222; background-color: rgba(54,51,54,0.88); color: white; font-family: Verdana,sans-serif; display: inline;' type="submit" value="done" name="yes">
+        </form>
+    {% endfor %}
+    <br>
+
+</center>
+
+</body>
+</html>
